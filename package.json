@@ -32,5 +32,6 @@
   "peerDependencies": {
     "ionic-angular": "^3.0.0",
     "@angular/animations": "~4.1.3"
-  }
+  },
+  "dependencies": {}
 }
