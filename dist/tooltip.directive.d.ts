@@ -31,4 +31,5 @@ export declare class Tooltip {
     private _getTooltipPosition();
     private _removeTooltip();
     private _resetTimer();
+    ngAfterViewInit(): void;
 }

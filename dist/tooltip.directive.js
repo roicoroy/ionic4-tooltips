@@ -12,7 +12,6 @@ var Tooltip = (function () {
         this._arrow = false;
         this._navTooltip = false;
         this.canShow = true;
-        this.trigger();
     }
     Object.defineProperty(Tooltip.prototype, "navTooltip", {
         get: function () {
@@ -142,6 +141,10 @@ var Tooltip = (function () {
     Tooltip.prototype._resetTimer = function () {
         clearTimeout(this.tooltipTimeout);
         this.tooltipTimeout = setTimeout(this._removeTooltip.bind(this), this.duration);
+    };
+    Tooltip.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        setTimeout(function () { _this.trigger(); }, 1000);
     };
     return Tooltip;
 }());
