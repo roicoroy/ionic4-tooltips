@@ -49,7 +49,9 @@ export class Tooltip {
       , private appRef: ApplicationRef
       , private platform: Platform
       , private _componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+  ) {
+    this.trigger();
+  }
 
   /**
    * Handles the click/press event and shows a tooltip.
@@ -99,7 +101,7 @@ export class Tooltip {
         tooltipComponent.arrow = arrowPosition;
       }
 
-      this.tooltipTimeout = setTimeout(this._removeTooltip.bind(this), this.duration);
+     // this.tooltipTimeout = setTimeout(this._removeTooltip.bind(this), this.duration);
 
     });
 
