@@ -17,7 +17,7 @@ import {
 
 @Component({
   selector: 'tooltip-box',
-  template: '{{ text }}',
+  template: '<div [innerHtml]="text"></div>',
   animations: [
     trigger('fade', [
       state('visible', style({ opacity: 1 })),
