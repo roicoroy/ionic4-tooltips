@@ -2,6 +2,10 @@
   "name": "ionic4-tooltips",
   "version": "1.0.0",
   "description": "Tooltips module for Ionic 2+ and Angular 2-7 apps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrquick17/ionic4-tooltips"
+  },
   "authors": [
     {
       "name": "Ibby Hadeed",
@@ -13,7 +17,6 @@
     }
   ],
   "license": "MIT",
-  "repository": "",
   "peerDependencies": {
     "@angular/common": ">=2.0.0 <8.00",
     "@angular/core": ">=2.0.0 <8.00",
