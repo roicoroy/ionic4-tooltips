@@ -123,7 +123,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   /**
-   * @return {boolean} TRUE if the tooltip can be shown
+   * @return TRUE if the tooltip can be shown
    */
   get canShow():boolean {
     return this._canShow &&
