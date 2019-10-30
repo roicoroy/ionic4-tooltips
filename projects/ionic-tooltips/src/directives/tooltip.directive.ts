@@ -54,7 +54,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   @Input() duration = 3000;
 
   @Input()
-  set active(val: boolean) {
+  set active(val:boolean) {
     this._active = typeof val !== 'boolean' || val !== false;
 
     this._active && this.canShow ?
@@ -84,8 +84,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Set default event type by platform if event is not defined
-    if (!this.event) {
+    if (typeof this.event === 'undefined') {
       this.event = this.platform.is('mobile') ?
         this.mobileEvent : this.desktopEvent;
     }

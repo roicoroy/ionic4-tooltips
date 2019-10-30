@@ -9,7 +9,8 @@ import {TooltipEvent} from '../../../projects/ionic-tooltips/src/models/tooltip-
   ],
 })
 export class HomePage {
-  tooltipEvent:TooltipEvent = TooltipEvent.CLICK;
-  showArrow:boolean = true;
   duration:number = 3000;
+  showArrow:boolean = true;
+  showToggleTooltip:boolean = false;
+  tooltipEvent:TooltipEvent = TooltipEvent.CLICK;
 }

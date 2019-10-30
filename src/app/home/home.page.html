@@ -111,12 +111,13 @@
 
     <ion-button mode="ios"
                 expand="block"
-                tooltip="I show on load!"
+                tooltip="Click to hide!"
                 positionV="bottom"
                 [arrow]="showArrow"
-                [event]="tooltipEvent"
-                [duration]="duration">
-      I show on load!
+                [active]="showToggleTooltip"
+                [event]="null"
+                (click)="showToggleTooltip = !showToggleTooltip">
+      Toggle Me
     </ion-button>
   </div>
 </ion-content>
