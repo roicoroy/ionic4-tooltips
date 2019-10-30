@@ -6,7 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content (ionScroll)="showToggleTooltip = false"
+             [scrollEvents]="true">
 <!--  <ion-list>-->
     <ion-card>
       <ion-card-title class="ion-text-center ion-padding">Options</ion-card-title>

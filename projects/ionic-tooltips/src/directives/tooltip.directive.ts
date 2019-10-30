@@ -9,6 +9,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  Renderer2,
   ViewContainerRef,
 } from '@angular/core';
 
