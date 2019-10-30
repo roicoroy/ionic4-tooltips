@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0]
 ### Added
-* Ionic 4 support
+* Ionic 4 support by [jrquick17](https://github.com/jrquick17)
+
+### Changed
+* Use `[innerHtml]` by [gh-appdev](https://github.com/gh-appdev)
 
 ## [Released]
 
