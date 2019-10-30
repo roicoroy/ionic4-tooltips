@@ -67,22 +67,35 @@ export class TooltipBox implements AfterViewInit {
 
   @Input()
   set posTop(val:number) {
-    this.rnd.setStyle(this.getNativeElement(), 'top', val + 'px');
+    this.rnd.setStyle(
+      this.getNativeElement(),
+      'top',
+      val + 'px'
+    );
   }
 
   @Input()
   set posLeft(val:number) {
-    this.rnd.setStyle(this.getNativeElement(), 'left', val + 'px');
+    this.rnd.setStyle(
+      this.getNativeElement(),
+      'left',
+      val + 'px'
+    );
   }
-
-  init:Promise<void>;
 
   private initResolve:Function;
 
-  constructor(public elementRef:ElementRef, private rnd:Renderer2) {
-    this.init = new Promise<void>(resolve => {
-      this.initResolve = resolve;
-    });
+  public init:Promise<void>;
+
+  constructor(
+    public elementRef:ElementRef,
+    private rnd:Renderer2
+  ) {
+    this.init = new Promise<void>(
+      (resolve) => {
+        this.initResolve = resolve;
+    }
+    );
   }
 
   getNativeElement():HTMLElement {
