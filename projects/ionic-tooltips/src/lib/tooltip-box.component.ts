@@ -53,11 +53,11 @@ import {
 export class TooltipBox implements AfterViewInit {
   @HostBinding('@fade') fadeState = 'invisible';
 
-  @Input() text: string;
-  @Input() tooltipHtml: string;
+  @Input() text:string;
+  @Input() tooltipHtml:string;
 
   @Input()
-  set arrow(side: string) {
+  set arrow(side:string) {
     this.rnd.setAttribute(
       this.getNativeElement(),
       'class',
@@ -66,30 +66,30 @@ export class TooltipBox implements AfterViewInit {
   }
 
   @Input()
-  set posTop(val: number) {
+  set posTop(val:number) {
     this.rnd.setStyle(this.getNativeElement(), 'top', val + 'px');
   }
 
   @Input()
-  set posLeft(val: number) {
+  set posLeft(val:number) {
     this.rnd.setStyle(this.getNativeElement(), 'left', val + 'px');
   }
 
   init: Promise<void>;
 
-  private initResolve: Function;
+  private initResolve:Function;
 
-  constructor(public elementRef: ElementRef, private rnd: Renderer2) {
+  constructor(public elementRef:ElementRef, private rnd:Renderer2) {
     this.init = new Promise<void>(resolve => {
       this.initResolve = resolve;
     });
   }
 
-  getNativeElement(): HTMLElement {
+  getNativeElement():HTMLElement {
     return this.elementRef.nativeElement;
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit():void {
     this.initResolve();
   }
 }
