@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
+## [2.0.0]
+### Added
+* Angular 8 support by [jrquick17](https://github.com/jrquick17)
+
 ## [1.0.0]
 ### Added
 * Ionic 4 support by [jrquick17](https://github.com/jrquick17)
@@ -15,8 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 * Use `[innerHtml]` by [gh-appdev](https://github.com/gh-appdev)
-
-## [Released]
 
 # [0.0.1]
 ### Added
