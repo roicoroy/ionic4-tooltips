@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TooltipDirective } from './tooltip.directive';
+import { TooltipDirective } from '../directives/tooltip.directive';
 
 @Injectable({
   providedIn: 'root',

@@ -10,9 +10,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 
-import { TooltipBox } from './tooltip-box.component';
+import { TooltipBox } from '../components/tooltip-box/tooltip-box.component';
 import { TooltipDirective } from './tooltip.directive';
-import { TooltipsModule } from './tooltips.module';
+import { TooltipsModule } from '../tooltips.module';
 
 @Component({
   selector: 'tooltip-view',

@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import { TooltipBox } from './tooltip-box.component';
-import { TooltipController } from './tooltip.cotroller';
-import { TooltipDirective } from './tooltip.directive';
+import { TooltipBox } from './components/tooltip-box/tooltip-box.component';
+import { TooltipController } from './controllers/tooltip.cotroller';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 @NgModule({
   entryComponents: [TooltipBox],
