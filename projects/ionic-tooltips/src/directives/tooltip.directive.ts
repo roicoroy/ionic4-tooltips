@@ -16,6 +16,7 @@ import { Platform } from '@ionic/angular';
 
 import { TooltipBox } from '../components/tooltip-box/tooltip-box.component';
 import { TooltipController } from '../controllers/tooltip.cotroller';
+import {TooltipEvent} from '../models/tooltip-event.model';
 
 @Directive({
   selector: '[tooltip]',
@@ -30,11 +31,11 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() positionH: string;
 
-  @Input() event: 'press' | 'click' | 'hover';
+  @Input() event:TooltipEvent;
 
-  @Input() mobileEvent: 'press' | 'click' = 'press';
+  @Input() mobileEvent:TooltipEvent;
 
-  @Input() desktopEvent: 'press' | 'click' | 'hover' = 'hover';
+  @Input() desktopEvent:TooltipEvent = TooltipEvent.HOVER;
 
   @Input() topOffset: number;
 
