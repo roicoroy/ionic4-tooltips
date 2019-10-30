@@ -29,6 +29,7 @@ export class TooltipBox implements AfterViewInit {
 
   @Input() text:string;
   @Input() tooltipHtml:string;
+  @Input() tooltipStyles:{ [key:string]:string; } = {};
 
   @Input()
   set arrow(side:string) {

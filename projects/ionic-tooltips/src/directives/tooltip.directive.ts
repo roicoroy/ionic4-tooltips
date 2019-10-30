@@ -29,8 +29,9 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   @Input() mobileEvent:TooltipEvent;
   @Input() positionV:string;
   @Input() positionH:string;
-  @Input() tooltipHtml:string;
   @Input() tooltip:string;
+  @Input() tooltipHtml:string;
+  @Input() tooltipStyles:{ [key:string]:string; } = {};
   @Input() topOffset:number;
 
   @Input()
@@ -149,6 +150,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
     const tooltipComponent: TooltipBox = this._tooltipElement.instance;
 
     tooltipComponent.text = this.tooltip;
+    tooltipComponent.tooltipStyles = this.tooltipStyles;
     tooltipComponent.tooltipHtml = this.tooltipHtml;
     tooltipComponent.init.then(() => {
       const tooltipPosition = this._getTooltipPosition();

@@ -1,3 +1,6 @@
-<div *ngIf="tooltipHtml; else txt" [innerHTML]="tooltipHtml"></div>
+<div class="tooltip-box"
+     [ngStyle]="tooltipStyles">
+  <div *ngIf="tooltipHtml; else txt" [innerHTML]="tooltipHtml"></div>
 
-<ng-template #txt><div [innerHtml]="text"></div></ng-template>
+  <ng-template #txt><div [innerHtml]="text"></div></ng-template>
+</div>
