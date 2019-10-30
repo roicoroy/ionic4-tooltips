@@ -21,6 +21,8 @@
 ## About
 
 Tooltips module for Angular 2+ and Ionic 3. 
+
+For AngularJS + Ionic 3 checkout [v0.0.1](https://github.com/jrquick17/ionic4-tooltips/releases/tag/v0.0.1).
                                                      
 * Try out the [demo](https://ionic4-auto-complete.jrquick.com) to see it in action!
 * Checkout [my other Ionic/Angular project](https://github.com/jrquick17/ionic4-auto-complete) for autocomplete!
