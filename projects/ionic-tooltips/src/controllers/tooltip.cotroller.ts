@@ -1,27 +1,30 @@
-import { Injectable } from '@angular/core';
-import { TooltipDirective } from '../directives/tooltip.directive';
+import {Injectable} from '@angular/core';
+import {TooltipDirective} from '../directives/tooltip.directive';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TooltipController {
-  allowMultiple = true;
-  activeTooltips: TooltipDirective[] = [];
+  public allowMultiple:boolean = true;
+  public activeTooltips:TooltipDirective[] = [];
 
-  addTooltip(instance: TooltipDirective) {
+  addTooltip(instance:TooltipDirective):void {
     if (instance.hideOthers || !this.allowMultiple && this.activeTooltips.length > 0) {
       this.hideAll();
     }
+
     this.activeTooltips.push(instance);
   }
 
-  removeTooltip(instance: TooltipDirective) {
+  removeTooltip(instance:TooltipDirective):void {
     this.activeTooltips.splice(this.activeTooltips.indexOf(instance), 1);
   }
 
-  hideAll() {
-    this.activeTooltips.forEach((tooltip: TooltipDirective) => {
-      tooltip.removeTooltip();
-    });
+  hideAll():void {
+    this.activeTooltips.forEach(
+      (tooltip:TooltipDirective) => {
+        tooltip.removeTooltip();
+      }
+    );
   }
 }
