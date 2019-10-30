@@ -12,52 +12,42 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import {Platform} from '@ionic/angular';
 
-import { TooltipBox } from '../components/tooltip-box/tooltip-box.component';
-import { TooltipController } from '../controllers/tooltip.cotroller';
+import {TooltipBox} from '../components/tooltip-box/tooltip-box.component';
+import {TooltipController} from '../controllers/tooltip.cotroller';
 import {TooltipEvent} from '../models/tooltip-event.model';
 
 @Directive({
   selector: '[tooltip]',
 })
 export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
-
-  @Input() tooltipHtml: string;
-
-  @Input() tooltip: string;
-
-  @Input() positionV: string;
-
-  @Input() positionH: string;
-
-  @Input() event:TooltipEvent;
-
-  @Input() mobileEvent:TooltipEvent;
-
   @Input() desktopEvent:TooltipEvent = TooltipEvent.HOVER;
-
-  @Input() topOffset: number;
-
-  @Input() leftOffset: number;
-
-  @Input() hideOthers: boolean;
+  @Input() event:TooltipEvent;
+  @Input() hideOthers:boolean;
+  @Input() leftOffset:number;
+  @Input() mobileEvent:TooltipEvent;
+  @Input() positionV:string;
+  @Input() positionH:string;
+  @Input() tooltipHtml:string;
+  @Input() tooltip:string;
+  @Input() topOffset:number;
 
   @Input()
-  set navTooltip(val: boolean) {
+  set navTooltip(val:boolean) {
     this._navTooltip = typeof val !== 'boolean' || val !== false;
   }
 
-  get navTooltip(): boolean {
+  get navTooltip():boolean {
     return this._navTooltip;
   }
 
   @Input()
-  set arrow(val: boolean) {
+  set arrow(val:boolean) {
     this._arrow = typeof val !== 'boolean' || val !== false;
   }
 
-  get arrow(): boolean {
+  get arrow():boolean {
     return this._arrow;
   }
 
@@ -66,19 +56,21 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   @Input()
   set active(val: boolean) {
     this._active = typeof val !== 'boolean' || val !== false;
-    this._active && this.canShow ? this.showTooltip() : this.removeTooltip();
+
+    this._active && this.canShow ?
+      this.showTooltip() : this.removeTooltip();
   }
 
-  get active(): boolean {
+  get active():boolean {
     return this._active;
   }
 
-  private _arrow = false;
-  private _navTooltip = false;
-  private tooltipElement: ComponentRef<TooltipBox>;
-  private tooltipTimeout: any;
-  private _canShow = true;
-  private _active = false;
+  private _active:boolean = false;
+  private _arrow:boolean = false;
+  private _canShow:boolean = true;
+  private _navTooltip:boolean = false;
+  private _tooltipElement:ComponentRef<TooltipBox>;
+  private _tooltipTimeout:any;
 
   constructor(
     private el:ElementRef,
@@ -94,7 +86,8 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     // Set default event type by platform if event is not defined
     if (!this.event) {
-      this.event = this.platform.is('mobile') ? this.mobileEvent : this.desktopEvent;
+      this.event = this.platform.is('mobile') ?
+        this.mobileEvent : this.desktopEvent;
     }
 
     // if the timer hasn't expired or active is true when the component gets destroyed, the tooltip will remain in the DOM
@@ -112,7 +105,9 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.tooltipElement && typeof this.tooltipElement.destroy === 'function') this.tooltipElement.destroy();
+    if (this._tooltipElement && typeof this._tooltipElement.destroy === 'function') {
+      this._tooltipElement.destroy();
+    }
   }
 
   /**
@@ -126,7 +121,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   /**
    * @return {boolean} TRUE if the tooltip can be shown
    */
-  get canShow(): boolean {
+  get canShow():boolean {
     return this._canShow &&
       ((typeof this.tooltip === 'string' && this.tooltip !== '')
         || (typeof this.tooltipHtml === 'string' && this.tooltipHtml !== ''));
@@ -136,25 +131,23 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
    * Handles the click/press event and shows a tooltip.
    * If a tooltip already exists, it will just reset it's timer.
    */
-  trigger() {
-    if (!this.canShow) {
-      return;
-    }
-
-    if (this.tooltipElement) {
-      this._resetTimer();
-    } else {
-      this.showTooltip();
+  trigger():void {
+    if (this.canShow) {
+      if (this._tooltipElement) {
+        this._resetTimer();
+      } else {
+        this.showTooltip();
+      }
     }
   }
 
   /**
    * Creates a new tooltip component and adjusts it's properties to show properly.
    */
-  showTooltip() {
+  showTooltip():void {
     this._createTooltipComponent();
 
-    const tooltipComponent: TooltipBox = this.tooltipElement.instance;
+    const tooltipComponent: TooltipBox = this._tooltipElement.instance;
 
     tooltipComponent.text = this.tooltip;
     tooltipComponent.tooltipHtml = this.tooltipHtml;
@@ -181,7 +174,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
       }
 
       if (!this._active) {
-        this.tooltipTimeout = setTimeout(
+        this._tooltipTimeout = setTimeout(
           this.removeTooltip.bind(this),
           this.duration,
         );
@@ -190,28 +183,28 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   @HostListener('click')
-  onClick(): void {
+  onClick():void {
     if (this.event === 'click') {
       this.trigger();
     }
   }
 
   @HostListener('press')
-  onPress(): void {
+  onPress():void {
     if (this.event === 'press') {
       this.trigger();
     }
   }
 
   @HostListener('mouseenter')
-  onMouseEnter(): void {
+  onMouseEnter():void {
     if (this.event === 'hover') {
       this.active = true;
     }
   }
 
   @HostListener('mouseleave')
-  onMouseLeave(): void {
+  onMouseLeave():void {
     if (this.event === 'hover') {
       this.active = false;
     }
@@ -219,17 +212,17 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
 
   private _createTooltipComponent() {
     const componentFactory = this.cfr.resolveComponentFactory(TooltipBox);
-    this.tooltipElement = this.vcr.createComponent(componentFactory);
+    this._tooltipElement = this.vcr.createComponent(componentFactory);
     this.tooltipCtrl.addTooltip(this);
   }
 
   private _getTooltipPosition() {
-    const tooltipNativeElement: HTMLElement = this.tooltipElement.instance.getNativeElement(),
-      el: HTMLElement = this.el.nativeElement,
-      rect: ClientRect = el.getBoundingClientRect();
+    const tooltipNativeElement:HTMLElement = this._tooltipElement.instance.getNativeElement(),
+      el:HTMLElement = this.el.nativeElement,
+      rect:ClientRect = el.getBoundingClientRect();
 
-    let positionLeft: number,
-      positionTop: number,
+    let positionLeft:number,
+      positionTop:number,
       spacing = 10;
 
     if (this.navTooltip) {
@@ -258,10 +251,13 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
       positionTop = rect.top + el.offsetHeight / 2 - tooltipNativeElement.offsetHeight / 2;
     }
 
-    if (+this.topOffset) {
+    this.topOffset++;
+    if (this.topOffset) {
       positionTop += +this.topOffset;
     }
-    if (+this.leftOffset) {
+
+    this.leftOffset++;
+    if (this.leftOffset) {
       positionLeft += +this.leftOffset;
     }
 
@@ -279,38 +275,41 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
 
     return {
       left: positionLeft,
-      top: positionTop,
+      top:  positionTop,
     };
   }
 
   removeTooltip() {
-    if (!this.tooltipElement) {
-      this.tooltipElement = undefined;
-      this.tooltipTimeout = undefined;
+    if (!this._tooltipElement) {
+      this._tooltipElement = undefined;
+      this._tooltipTimeout = undefined;
       return;
     }
 
-    this.tooltipElement.instance.fadeState = 'invisible';
+    this._tooltipElement.instance.fadeState = 'invisible';
 
     this.canShow = false;
 
     // wait for animation to finish then clear everything out
-    setTimeout(() => {
-      if (
-        this.tooltipElement &&
-        typeof this.tooltipElement.destroy === 'function'
-      ) {
-        this.tooltipElement.destroy();
-      }
-      this.tooltipCtrl.removeTooltip(this);
-      this.tooltipElement = this.tooltipTimeout = undefined;
-      this.canShow = true;
-    }, 300);
+    setTimeout(
+      () => {
+        if (
+          this._tooltipElement &&
+          typeof this._tooltipElement.destroy === 'function'
+        ) {
+          this._tooltipElement.destroy();
+        }
+        this.tooltipCtrl.removeTooltip(this);
+        this._tooltipElement = this._tooltipTimeout = undefined;
+        this.canShow = true;
+      },
+      300
+    );
   }
 
-  private _resetTimer() {
-    clearTimeout(this.tooltipTimeout);
-    this.tooltipTimeout = setTimeout(() => {
+  private _resetTimer():void {
+    clearTimeout(this._tooltipTimeout);
+    this._tooltipTimeout = setTimeout(() => {
       this.active = false;
     }, this.duration);
   }
