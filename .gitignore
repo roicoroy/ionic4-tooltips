@@ -6,10 +6,11 @@
 *.log
 *.tmp
 *.tmp.*
-log.txt
+.DS_STORE
 *.sublime-project
 *.sublime-workspace
 .vscode/
+log.txt
 npm-debug.log*
 package-lock.json
 
