@@ -9,6 +9,7 @@ import {TooltipEvent} from '../../../projects/ionic-tooltips/src/models/tooltip-
   ],
 })
 export class HomePage {
+  debounce:number = 0;
   duration:number = 3000;
   showArrow:boolean = true;
   showToggleTooltip:boolean = false;

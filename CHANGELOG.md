@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Ionic 4 support by [jrquick17](https://github.com/jrquick17)
 * ARIA support by [jrquick17](https://github.com/jrquick17)
 * HammerJS by [jrquick17](https://github.com/jrquick17)
+* `debounce` attribute to delay tooltip by [jrquick17](https://github.com/jrquick17)
 
 ### Changed
 * Use `[innerHtml]` by [gh-appdev](https://github.com/gh-appdev)

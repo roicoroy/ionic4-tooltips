@@ -22,6 +22,7 @@ import {TooltipEvent} from '../models/tooltip-event.model';
   selector: '[tooltip]',
 })
 export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
+  @Input() debounce:number = 0;
   @Input() desktopEvent:TooltipEvent = TooltipEvent.HOVER;
   @Input() event:TooltipEvent;
   @Input() hideOthers:boolean;
@@ -70,6 +71,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   private _active:boolean = false;
   private _arrow:boolean = false;
   private _canShow:boolean = true;
+  private _debouncedPromise = null;
   private _navTooltip:boolean = false;
   private _tooltipElement:ComponentRef<TooltipBox>;
   private _tooltipTimeout:any;
@@ -146,43 +148,50 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
    * Creates a new tooltip component and adjusts it's properties to show properly.
    */
   showTooltip():void {
-    this._createTooltipComponent();
+    this._debouncedPromise = setTimeout(
+      () => {
+        this._debouncedPromise = null;
 
-    const tooltipComponent: TooltipBox = this._tooltipElement.instance;
+        this._createTooltipComponent();
 
-    tooltipComponent.role = this.role;
-    tooltipComponent.text = this.tooltip;
-    tooltipComponent.tooltipStyles = this.tooltipStyles;
-    tooltipComponent.tooltipHtml = this.tooltipHtml;
-    tooltipComponent.init.then(() => {
-      const tooltipPosition = this._getTooltipPosition();
+        const tooltipComponent: TooltipBox = this._tooltipElement.instance;
 
-      tooltipComponent.posLeft = tooltipPosition.left;
-      tooltipComponent.posTop = tooltipPosition.top;
+        tooltipComponent.role = this.role;
+        tooltipComponent.text = this.tooltip;
+        tooltipComponent.tooltipStyles = this.tooltipStyles;
+        tooltipComponent.tooltipHtml = this.tooltipHtml;
+        tooltipComponent.init.then(() => {
+          const tooltipPosition = this._getTooltipPosition();
 
-      tooltipComponent.fadeState = 'visible';
+          tooltipComponent.posLeft = tooltipPosition.left;
+          tooltipComponent.posTop = tooltipPosition.top;
 
-      if (this.arrow) {
-        let arrowPosition;
-        if (this.positionV === 'top') {
-          arrowPosition = 'bottom';
-        } else if (this.positionV === 'bottom') {
-          arrowPosition = 'top';
-        } else if (this.positionH === 'left') {
-          arrowPosition = 'right';
-        } else {
-          arrowPosition = 'left';
-        }
-        tooltipComponent.arrow = arrowPosition;
-      }
+          tooltipComponent.fadeState = 'visible';
 
-      if (!this._active) {
-        this._tooltipTimeout = setTimeout(
-          this.removeTooltip.bind(this),
-          this.duration,
-        );
-      }
-    });
+          if (this.arrow) {
+            let arrowPosition;
+            if (this.positionV === 'top') {
+              arrowPosition = 'bottom';
+            } else if (this.positionV === 'bottom') {
+              arrowPosition = 'top';
+            } else if (this.positionH === 'left') {
+              arrowPosition = 'right';
+            } else {
+              arrowPosition = 'left';
+            }
+            tooltipComponent.arrow = arrowPosition;
+          }
+
+          if (!this._active) {
+            this._tooltipTimeout = setTimeout(
+              this.removeTooltip.bind(this),
+              this.duration,
+            );
+          }
+        });
+      },
+      this.debounce
+    );
   }
 
   @HostListener('click')
@@ -283,6 +292,12 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   removeTooltip() {
+    if (this._debouncedPromise) {
+      clearTimeout(this._debouncedPromise);
+
+      this._debouncedPromise = null;
+    }
+
     if (!this._tooltipElement) {
       this._tooltipElement = undefined;
       this._tooltipTimeout = undefined;
