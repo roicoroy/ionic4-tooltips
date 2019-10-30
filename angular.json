@@ -158,33 +158,33 @@
         }
       }
     },
-    "ionic-tooltips": {
-      "root": "projects/ionic-tooltips",
-      "sourceRoot": "projects/ionic-tooltips/src",
+    "ionic4-tooltips": {
+      "root": "projects/ionic4-tooltips",
+      "sourceRoot": "projects/ionic4-tooltips/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ionic-tooltips/tsconfig.lib.json",
-            "project": "projects/ionic-tooltips/ng-package.json"
+            "tsConfig": "projects/ionic4-tooltips/tsconfig.lib.json",
+            "project": "projects/ionic4-tooltips/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ionic-tooltips/src/test.ts",
-            "tsConfig": "projects/ionic-tooltips/tsconfig.spec.json",
-            "karmaConfig": "projects/ionic-tooltips/karma.conf.js"
+            "main": "projects/ionic4-tooltips/src/test.ts",
+            "tsConfig": "projects/ionic4-tooltips/tsconfig.spec.json",
+            "karmaConfig": "projects/ionic4-tooltips/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ionic-tooltips/tsconfig.lib.json",
-              "projects/ionic-tooltips/tsconfig.spec.json"
+              "projects/ionic4-tooltips/tsconfig.lib.json",
+              "projects/ionic4-tooltips/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

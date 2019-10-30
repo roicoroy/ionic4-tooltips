@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {TooltipEvent} from '../../../projects/ionic-tooltips/src/models/tooltip-event.model';
+import {TooltipEvent} from '../../../projects/ionic4-tooltips/src/models/tooltip-event.model';
 
 @Component({
   selector:    'app-home',

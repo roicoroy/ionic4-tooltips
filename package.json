@@ -8,12 +8,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "prebuild:lib": "rimraf -rf aot dist ",
-    "build:lib": "ng build --project ionic-tooltips",
+    "build:lib": "ng build --project ionic4-tooltips",
     "postversion": "npm run changelog",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "postchangelog": "git commit CHANGELOG.md -m \"chore(): update changelog\"",
-    "shipit": "npm run lint && npm run build:lib && cd dist/ionic-tooltips && npm publish"
+    "shipit": "npm run lint && npm run build:lib && cd dist/ionic4-tooltips && npm publish"
   },
   "authors": [
     {

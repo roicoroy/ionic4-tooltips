@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "ionic-tooltips": [
-        "dist/ionic-tooltips"
+      "ionic4-tooltips": [
+        "dist/ionic4-tooltips"
       ],
-      "ionic-tooltips/*": [
-        "dist/ionic-tooltips/*"
+      "ionic4-tooltips/*": [
+        "dist/ionic4-tooltips/*"
       ]
     }
   }

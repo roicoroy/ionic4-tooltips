@@ -24,15 +24,11 @@ Tooltips module for Angular 2+ and Ionic 3.
 
 For AngularJS + Ionic 3 checkout [v0.0.1](https://github.com/jrquick17/ionic4-tooltips/releases/tag/v0.0.1).
                                                      
-* Try out the [demo](https://ionic4-auto-complete.jrquick.com) to see it in action!
+* Try out the [demo](https://ionic4-tooltips.jrquick.com) to see it in action!
 * Checkout [my other Ionic/Angular project](https://github.com/jrquick17/ionic4-auto-complete) for autocomplete!
 * Visit [my website](https://jrquick.com) for other cool projects!
 
 Versions above 4.0.0 support Ionic 4 only. For older versions please use the `ionic3` branch.
-
-## Demo
-
-Below is a gif showing the module in action, you can also clone the example project here: https://github.com/zyra/ionic-tooltips-example
 
 ## Documentation
 
@@ -167,7 +163,7 @@ To contribute, clone the repo. Then, run `npm install` to get the packages neede
 
 ### Versioning
 
-We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/zyra/ionic-tooltips/tags).
+We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jrquick17/ionic4-tooltips).
 
 ## Issues ##
 
