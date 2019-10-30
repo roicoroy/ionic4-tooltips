@@ -80,20 +80,14 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   private _active = false;
 
   constructor(
-    private el: ElementRef,
-    private appRef: ApplicationRef,
-    private platform: Platform,
-    private cfr: ComponentFactoryResolver,
-    private tooltipCtrl: TooltipController,
-    private vcr: ViewContainerRef,
+    private el:ElementRef,
+    private appRef:ApplicationRef,
+    private platform:Platform,
+    private cfr:ComponentFactoryResolver,
+    private tooltipCtrl:TooltipController,
+    private vcr:ViewContainerRef,
   ) {
-  }
 
-  ngAfterViewInit() {
-    // Show the tooltip immediately after initiating view if set to
-    if (this._active) {
-      this.trigger();
-    }
   }
 
   ngOnInit() {
@@ -101,6 +95,10 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
     if (!this.event) {
       this.event = this.platform.is('mobile') ? this.mobileEvent : this.desktopEvent;
     }
+
+    // if the timer hasn't expired or active is true when the component gets destroyed, the tooltip will remain in the DOM
+    // this removes it
+    this.removeTooltip();
   }
 
   /**
@@ -314,11 +312,5 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
     this.tooltipTimeout = setTimeout(() => {
       this.active = false;
     }, this.duration);
-  }
-
-  ngOnDestroy() {
-    // if the timer hasn't expired or active is true when the component gets destroyed, the tooltip will remain in the DOM
-    // this removes it
-    this.removeTooltip();
   }
 }
