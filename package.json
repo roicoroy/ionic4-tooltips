@@ -45,6 +45,7 @@
     "@ionic/angular": "^4.0.0",
     "angular-aria": "^1.7.8",
     "core-js": "^2.5.4",
+    "hammerjs": "^2.0.8",
     "rxjs": "^6.5.0",
     "zone.js": "~0.8.29"
   },
