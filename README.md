@@ -1,21 +1,38 @@
-# Ionic Tooltips
-[![npm](https://img.shields.io/npm/l/ionic-tooltips.svg)](https://www.npmjs.com/package/ionic-tooltips/)
-[![npm](https://img.shields.io/npm/dt/ionic-tooltips.svg)](https://www.npmjs.com/package/ionic-tooltips)
-[![npm](https://img.shields.io/npm/dm/ionic-tooltips.svg)](https://www.npmjs.com/package/ionic-tooltips)
+# ionic4-tooltips
 
-Tooltips module for apps built with Ionic Framework.
+[![npm](https://img.shields.io/npm/l/ionic4-tooltips.svg)](https://www.npmjs.com/package/ionic4-tooltips/)
+[![npm](https://img.shields.io/npm/dt/ionic4-tooltips.svg)](https://www.npmjs.com/package/ionic4-tooltips)
+[![npm](https://img.shields.io/npm/dm/ionic4-tooltips.svg)](https://www.npmjs.com/package/ionic4-tooltips)
 
-## Compatibility
+![Ionic Tooltips Demo](https://github.com/zyra/ionic-tooltips-example/blob/master/ionic-tooltips.gif?raw=true)
 
-This module is designed to work with `ionic-angular@^3.9.2` but it should work with any version above `2.0.0` as it doesn't heavily depend on the Ionic Framework.
+## Index ##
+
+* [About](#about)
+* [Demo](#demo)
+* [Setup](#setup)
+* [Documentation](#documentation)
+* [Issues](#issues)
+* [Contributing](#contributing)
+* [Deploy](#deploy)
+* [Future Plans](#future-plans)
+* [FAQ](#faq)
+
+## About
+
+Tooltips module for Angular 2+ and Ionic 3. 
+                                                     
+* Try out the [demo](https://ionic4-auto-complete.jrquick.com) to see it in action!
+* Checkout [my other Ionic/Angular project](https://github.com/jrquick17/ionic4-auto-complete) for autocomplete!
+* Visit [my website](https://jrquick.com) for other cool projects!
+
+Versions above 4.0.0 support Ionic 4 only. For older versions please use the `ionic3` branch.
 
 ## Demo
 
 Below is a gif showing the module in action, you can also clone the example project here: https://github.com/zyra/ionic-tooltips-example
 
-![Ionic Tooltips Demo](https://github.com/zyra/ionic-tooltips-example/blob/master/ionic-tooltips.gif?raw=true)
-
-## Examples
+## Documentation
 
 The module can be used to display tooltips for any element in your app. It also provides a special treatment for buttons in the header navigation (inspired by Google's apps).
 
@@ -45,21 +62,15 @@ And here's another example to show a tooltip below a nav button:
 </ion-header>
 ```
 
-## Installation
+### Installation
 
-1.  Make sure you have `@angular/animations` installed. If you don't have it, run the following command to install it:
-
-```shell
-npm i --save-exact @angular/animations@5
-```
-
-2.  Install this module by running the following command:
+1.  Install this module by running the following command:
 
 ```shell
-npm i ionic-tooltips
+npm i ionic-tooltips@beta
 ```
 
-3.  Import `TooltipsModule` in your `@NgModule`. If you are using lazy module loading, then you need to import it in the modules where it's used.
+2.  Import `TooltipsModule` in your `@NgModule`. If you are using lazy module loading, then you need to import it in the modules where it's used.
 
 ```ts
 import { TooltipsModule } from 'ionic-tooltips';
@@ -68,13 +79,13 @@ import { TooltipsModule } from 'ionic-tooltips';
    ...
    imports: [
       ...
-      TooltipsModule
+      TooltipsModule.forRoot()
    ]
 })
 export class MyModule { ... }
 ```
 
-4.  Import `BrowserAnimationsModule` in your app's main `@NgModule`.
+3.  Import `BrowserAnimationsModule` in your app's main `@NgModule`.
 
 ```ts
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -90,9 +101,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 Now you're ready to use this module. See information below for usage.
 
-## Usage
+### Usage
 
-The `tooltip` directive takes a string, which will be used as the tooltip text. When using the `tooltip` directive, you can also use the following inputs:
+The `tooltip` directive takes a string, which will be used as the tooltip text. To use HTML in your tooltip, you need to pass the content through the `[tooltipHtml]` directive documented below. When using the `tooltip` directive, you can also use the following inputs:
+
+#### `tooltipHtml`
+(string) specifies HTML to use inside the tooltip. This will override any value you passed with the `[tooltip]` directive (if any was provided).
 
 #### `navTooltip`
 
@@ -108,8 +122,18 @@ The `tooltip` directive takes a string, which will be used as the tooltip text. 
 
 #### `event`
 
-(string) the event to show the tooltip on. Can be either `'hover'`, `'click'` or `'press'`. Defaults to `'press'`.  
+(string) the event to show the tooltip on. Can be either `'hover'`, `'click'` or `'press'`. Defaults to `'hover'` on desktop, `'press'` on mobile.  
 Note: `'hover'` only works on desktop.
+
+#### `desktopEvent`
+
+(string) the event to show the tooltip on when displayed on a desktop . Can be either `'hover'`, `'click'` or `'press'`. Defaults to `'hover'`.  
+Note: This only works when the `event` attribute is omitted.
+
+#### `mobileEvent`
+
+(string) the event to show the tooltip on when displayed on a mobile. Can be either `'click'` or `'press'`. Defaults to `'press'`.  
+Note: This only works when the `event` attribute is omitted.
 
 #### `arrow`
 
@@ -123,21 +147,41 @@ Note: `'hover'` only works on desktop.
 
 (boolean) add this attribute or set it's value to true to display the tooltip. Defaults to `false`.
 
-<br><br>
+#### `topOffset`
 
-## Versioning
+(number) add this attribute to offset the vertical position of the tooltip. Defaults to `0`.
+
+#### `leftOffset`
+
+(number) add this attribute to offset the horizontal position of the tooltip. Defaults to `0`.
+
+#### `hideOthers`
+
+(boolean) add this attribute to set weather to hide other visible tooltips. Defaults to `false`.
+ 
+## Contributing ##
+
+To contribute, clone the repo. Then, run `npm install` to get the packages needed for the library to work. Running `npm install start` will build and run the demo.
+
+### Versioning
 
 We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/zyra/ionic-tooltips/tags).
 
-## Contribution
+## Issues ##
 
-- **Having an issue**? or looking for support? [Open an issue](https://github.com/zyra/ionic-tooltips/issues/new) and we will get you the help you need.
-- Got a **new feature or a bug fix**? Fork the repository, make your changes, and submit a pull request.
+If you find any issues feel free to open a request in [the Issues tab](https://github.com/jrquick17/ionic4-auto-complete/issues). If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.
+
+### Demo ###
+
+Run `npm install` to get packages required for the demo and then run `ionic serve` to run locally.
+
+### Thanks ###
+
+* [bushybuffalo](https://github.com/bushybuffalo)
+* [jrquick17](https://github.com/jrquick17)
+* [kadoshms](https://github.com/kadoshms)
+* [gnowland](https://github.com/gnowland)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details  
-
-## Support this project
-
-If you find this project useful, please star the repository to let people know that it's reliable. Also, share it with friends and colleagues that might find this useful as well. Thank you :smile:
