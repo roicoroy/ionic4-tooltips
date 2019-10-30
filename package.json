@@ -1,6 +1,6 @@
 {
   "name": "ionic4-tooltips",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Tooltips module for Ionic apps",
   "scripts": {
     "ng": "ng",
