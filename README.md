@@ -58,7 +58,6 @@ And here's another example to show a tooltip below a nav button:
 
 ### Installation
 
-zzz
 1.  Install this module by running the following command:
 
 ```shell
