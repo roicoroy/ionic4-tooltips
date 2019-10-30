@@ -41,6 +41,10 @@
       <ion-select-option value="press">
         Press
       </ion-select-option>
+
+      <ion-select-option value="hover">
+        Hover
+      </ion-select-option>
     </ion-select>
   </ion-item>
 
@@ -103,6 +107,16 @@
                 [event]="tooltipEvent"
                 [duration]="duration">
       Bottom tooltip
+    </ion-button>
+
+    <ion-button mode="ios"
+                expand="block"
+                tooltip="I show on load!"
+                positionV="bottom"
+                [arrow]="showArrow"
+                [event]="tooltipEvent"
+                [duration]="duration">
+      I show on load!
     </ion-button>
   </div>
 </ion-content>
