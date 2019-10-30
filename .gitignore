@@ -11,7 +11,7 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
-dist
+package-lock.json
 
 .idea/
 .ionic/
@@ -20,6 +20,7 @@ dist
 .tmp/
 .versions/
 coverage/
+dist/
 www/
 node_modules/
 tmp/
