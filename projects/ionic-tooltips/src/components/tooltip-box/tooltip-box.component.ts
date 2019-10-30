@@ -27,6 +27,7 @@ import {
 export class TooltipBox implements AfterViewInit {
   @HostBinding('@fade') fadeState:string = 'invisible';
 
+  @Input() role:string = 'status';
   @Input() text:string;
   @Input() tooltipHtml:string;
   @Input() tooltipStyles:{ [key:string]:string; } = {};
