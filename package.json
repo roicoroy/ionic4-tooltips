@@ -15,7 +15,16 @@
     "postchangelog": "git commit CHANGELOG.md -m \"chore(): update changelog\"",
     "shipit": "npm run lint && npm run build:lib && cd dist/ionic-tooltips && npm publish"
   },
-  "author": "Ibby Hadeed <ibby@zyra.ca>",
+  "authors": [
+    {
+      "name": "Ibby Hadeed",
+      "email": "<ibby@zyra.ca>"
+    },
+    {
+      "name": "Jeremy Quick",
+      "email": "<me@jrquick.com>"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
