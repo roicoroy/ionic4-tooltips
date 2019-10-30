@@ -184,28 +184,28 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
 
   @HostListener('click')
   onClick():void {
-    if (this.event === 'click') {
+    if (this.event === TooltipEvent.CLICK) {
       this.trigger();
     }
   }
 
   @HostListener('press')
   onPress():void {
-    if (this.event === 'press') {
+    if (this.event === TooltipEvent.PRESS) {
       this.trigger();
     }
   }
 
   @HostListener('mouseenter')
   onMouseEnter():void {
-    if (this.event === 'hover') {
+    if (this.event === TooltipEvent.HOVER) {
       this.active = true;
     }
   }
 
   @HostListener('mouseleave')
   onMouseLeave():void {
-    if (this.event === 'hover') {
+    if (this.event === TooltipEvent.HOVER) {
       this.active = false;
     }
   }
