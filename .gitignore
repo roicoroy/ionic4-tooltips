@@ -22,7 +22,6 @@ package-lock.json
 .versions/
 coverage/
 dist/
-www/
 node_modules/
 tmp/
 temp/
