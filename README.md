@@ -70,7 +70,7 @@ npm install ionic4-tooltips --save
 2.  Import `TooltipsModule` in your `@NgModule`. If you are using lazy module loading, then you need to import it in the modules where it's used.
 
 ```ts
-import { TooltipsModule } from 'ionic-tooltips';
+import { TooltipsModule } from 'ionic4-tooltips';
 
 @NgModule({
    ...
