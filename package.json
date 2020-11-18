@@ -1,15 +1,36 @@
 {
   "name": "ionic4-tooltips",
   "version": "2.0.2",
+  "license": "MIT",
+  "homepage": "https://ionic4-tooltips.jrquick.com",
   "description": "Tooltips module for Ionic 2+ and Angular 8+ apps",
+  "readme": "README.md",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "build:lib": "ng build --project ionic4-tooltips",
-    "shipit": "npm run lint && npm run build:lib && cd dist/ionic4-tooltips/ && npm publish && cd ../.."
+    "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
+    "docs": "npm run docs:build",
+    "docs:build": "compodoc -p tsconfig.json -n ionic4-tooltips -d docs --hideGenerator",
+    "docs:serve": "npm run docs:build -- -s",
+    "docs:watch": "npm run docs:build -- -s -w",
+    "lint": "tslint --project tsconfig.json src/**/*.ts",
+    "publish": "npm publish dist",
+    "shipit": "npm run lint && npm run test && npm run build && npm run docs:build && npm run publish",
+    "test": "ng test --browsers PhantomJS --progress --watch false"
+  },
+  "ngPackage": {
+    "lib": {
+      "cssUrl": "inline",
+      "entryFile": "src/main.ts",
+      "styleIncludePaths": [
+        "./src/scss"
+      ],
+      "umdModuleIds": {
+        "@ionic/angular": "@ionic/angular"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrquick17/ionic4-tooltips"
   },
   "authors": [
     {
@@ -21,28 +42,13 @@
       "email": "<me@jrquick.com>"
     }
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jrquick17/ionic4-tooltips"
-  },
-  "dependencies": {
-    "@angular/animations": "^11.0.1",
-    "@angular/common": "^11.0.1",
-    "@angular/core": "^11.0.1",
-    "@angular/forms": "^11.0.1",
-    "@angular/platform-browser": "^11.0.1",
-    "@angular/platform-browser-dynamic": "^11.0.1",
-    "@angular/router": "^11.0.1",
-    "@ionic-native/core": "^5.29.0",
-    "@ionic-native/splash-screen": "^5.29.0",
-    "@ionic-native/status-bar": "^5.29.0",
-    "@ionic/angular": "^5.5.0",
-    "angular-aria": "^1.8.2",
-    "core-js": "^3.7.0",
-    "hammerjs": "^2.0.8",
-    "rxjs": "^6.6.3",
-    "zone.js": "^0.10.3"
+  "keywords": [
+    "angular",
+    "autocomplete",
+    "ionic"
+  ],
+  "bugs": {
+    "url": "https://github.com/jrquick17/ionic4-tooltips/issues"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1100.2",
@@ -50,10 +56,15 @@
     "@angular-devkit/build-ng-packagr": "^0.1100.0-next.5",
     "@angular-devkit/core": "^11.0.2",
     "@angular-devkit/schematics": "^11.0.2",
+    "@angular/animations": "^11.0.1",
+    "@angular/common": "^11.0.1",
     "@angular/cli": "^11.0.2",
     "@angular/compiler": "^11.0.1",
     "@angular/compiler-cli": "^11.0.1",
+    "@angular/core": "^11.0.1",
     "@angular/language-service": "^11.0.1",
+    "@angular/platform-browser": "^11.0.1",
+    "@angular/platform-browser-dynamic": "^11.0.1",
     "@angular/platform-server": "^11.0.1",
     "@ionic/angular-toolkit": "^3.0.0",
     "@types/jasmine": "^3.6.1",
@@ -79,5 +90,7 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@angular/core": "^8.0.0 || 9.0.0 || ^10.0.0 || ^11.0.0"
+  }
 }

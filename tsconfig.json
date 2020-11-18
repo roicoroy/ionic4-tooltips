@@ -5,10 +5,11 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -16,14 +17,10 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "ionic4-tooltips": [
-        "dist/ionic4-tooltips"
-      ],
-      "ionic4-tooltips/*": [
-        "dist/ionic4-tooltips/*"
-      ]
-    }
+    ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }
