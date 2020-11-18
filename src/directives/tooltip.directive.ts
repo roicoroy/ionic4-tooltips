@@ -22,8 +22,17 @@ import {TooltipEvent} from '../models/tooltip-event.model';
   selector: '[tooltip]',
 })
 export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
+  private _active:boolean = false;
+  private _arrow:boolean = false;
+  private _canShow:boolean = true;
+  private _debouncedPromise = null;
+  private _navTooltip:boolean = false;
+  private _tooltipElement:ComponentRef<TooltipBoxComponent>;
+  private _tooltipTimeout:any;
+
   @Input() debounce:number = 0;
   @Input() desktopEvent:TooltipEvent = TooltipEvent.HOVER;
+  @Input() duration = 3000;
   @Input() event:TooltipEvent;
   @Input() hideOthers:boolean;
   @Input() leftOffset:number;
@@ -54,8 +63,6 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
     return this._arrow;
   }
 
-  @Input() duration = 3000;
-
   @Input()
   set active(val:boolean) {
     this._active = typeof val !== 'boolean' || val !== false;
@@ -67,14 +74,6 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   get active():boolean {
     return this._active;
   }
-
-  private _active:boolean = false;
-  private _arrow:boolean = false;
-  private _canShow:boolean = true;
-  private _debouncedPromise = null;
-  private _navTooltip:boolean = false;
-  private _tooltipElement:ComponentRef<TooltipBoxComponent>;
-  private _tooltipTimeout:any;
 
   constructor(
     private el:ElementRef,
