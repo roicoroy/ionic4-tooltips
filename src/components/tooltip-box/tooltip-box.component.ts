@@ -24,7 +24,11 @@ import {
   ],
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class TooltipBox implements AfterViewInit {
+export class TooltipBoxComponent implements AfterViewInit {
+  private initResolve:Function;
+
+  public init:Promise<void>;
+
   @HostBinding('@fade') fadeState:string = 'invisible';
 
   @Input() role:string = 'status';
@@ -58,10 +62,6 @@ export class TooltipBox implements AfterViewInit {
       val + 'px'
     );
   }
-
-  private initResolve:Function;
-
-  public init:Promise<void>;
 
   constructor(
     public elementRef:ElementRef,
