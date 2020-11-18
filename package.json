@@ -8,7 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build:lib": "ng build --project --prod ionic4-tooltips",
+    "build:lib": "ng build --project ionic4-tooltips --prod",
     "shipit": "npm run lint && npm run build:lib && cd dist/ionic4-tooltips/ && npm publish && cd ../.."
   },
   "authors": [
