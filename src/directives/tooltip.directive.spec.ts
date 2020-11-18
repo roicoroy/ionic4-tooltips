@@ -19,7 +19,7 @@ import { TooltipsModule } from '../tooltips.module';
   template:
     '<button #btn tooltip="Hello world" [duration]="1000" [active]="active">Click me</button>'
 })
-class TestPage implements AfterViewInit {
+class TestPageComponent implements AfterViewInit {
   @ViewChild('btn') button: ElementRef;
 
   @ViewChild(TooltipDirective) tooltip: TooltipDirective;
@@ -45,14 +45,14 @@ class TestPage implements AfterViewInit {
 
 describe('Tooltip', () => {
   let de: DebugElement,
-    comp: TestPage,
-    fixture: ComponentFixture<TestPage>,
+    comp: TestPageComponent,
+    fixture: ComponentFixture<TestPageComponent>,
     tooltip: any,
     getTooltipBox: () => TooltipBoxComponent;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TestPage],
+      declarations: [TestPageComponent],
       imports: [
         IonicModule.forRoot(), // to be able to inject Platform
         BrowserAnimationsModule, // needed for TooltipsModule
@@ -64,7 +64,7 @@ describe('Tooltip', () => {
   beforeEach(() => {
     console.log(!!fixture, !!comp, !!de, !!tooltip);
 
-    fixture = TestBed.createComponent(TestPage);
+    fixture = TestBed.createComponent(TestPageComponent);
     fixture.autoDetectChanges(true);
     comp = fixture.componentInstance;
     de = fixture.debugElement;
@@ -74,7 +74,7 @@ describe('Tooltip', () => {
 
   it('container page should exist', () => {
     expect(comp).toBeDefined();
-    expect(comp instanceof TestPage).toBeTruthy();
+    expect(comp instanceof TestPageComponent).toBeTruthy();
   });
 
   it('should display TooltipBoxComponent on click for 1s', () => {
