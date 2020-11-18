@@ -1,6 +1,6 @@
 {
   "name": "ionic4-tooltips",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Tooltips module for Ionic 2+ and Angular 8+ apps",
   "repository": {
     "type": "git",
@@ -17,9 +17,10 @@
     }
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "peerDependencies": {
-    "@angular/common": ">=8.00",
-    "@angular/core": ">=8.00",
-    "@ionic/angular": "*"
+    "@angular/core": "^8.0.0 || 9.0.0 || ^10.0.0"
   }
 }
