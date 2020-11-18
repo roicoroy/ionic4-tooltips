@@ -6,7 +6,7 @@
   "description": "Tooltips module for Ionic 2+ and Angular 8+ apps",
   "readme": "README.md",
   "scripts": {
-    "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
+    "build": "ng-packagr -p package.json",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ionic4-tooltips -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",

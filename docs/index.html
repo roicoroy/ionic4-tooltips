@@ -1,0 +1,222 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ionic4-tooltips</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ionic4-tooltips</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="ionic4-tooltips">ionic4-tooltips</h1>
+<p><a href="https://www.npmjs.com/package/ionic4-tooltips/"><img src="https://img.shields.io/npm/l/ionic4-tooltips.svg" alt="npm" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ionic4-tooltips"><img src="https://img.shields.io/npm/dt/ionic4-tooltips.svg" alt="npm" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ionic4-tooltips"><img src="https://img.shields.io/npm/dm/ionic4-tooltips.svg" alt="npm" class="img-responsive"></a></p>
+<p><img src="https://github.com/zyra/ionic-tooltips-example/blob/master/ionic-tooltips.gif?raw=true" alt="Ionic Tooltips Demo" class="img-responsive"></p>
+<h2 id="index">Index</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#issues">Issues</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#deploy">Deploy</a></li>
+<li><a href="#future-plans">Future Plans</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<h2 id="about">About</h2>
+<p>Tooltips module for AngularJS/Angular2+ and Ionic 2+. </p>
+<ul>
+<li>Try out the <a href="https://ionic4-tooltips.jrquick.com">demo</a> to see it in action!</li>
+<li>Checkout <a href="https://github.com/jrquick17/ionic4-auto-complete">my other Ionic/Angular project</a> for autocomplete!</li>
+<li>Visit <a href="https://jrquick.com">my website</a> for other cool projects!</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>The module can be used to display tooltips for any element in your app. It also provides a special treatment for buttons in the header navigation (inspired by Google&#39;s apps).</p>
+<p>Here&#39;s a quick example to show a tooltip below a button:</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;!-- positionV specifies where the tooltip should be displayed vertically, can be either top or bottom --&gt;
+&lt;!-- arrow tells the tooltip directive to show an arrow above the tooltip box --&gt;
+&lt;button ion-button tooltip=&quot;I&#39;m a tooltip below a button&quot; positionV=&quot;bottom&quot; arrow&gt;
+  Press me to see a tooltip
+&lt;/button&gt;</code></pre></div><p>And here&#39;s another example to show a tooltip below a nav button:</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-navbar&gt;
+    &lt;ion-title&gt;Page title&lt;/ion-title&gt;
+    &lt;ion-buttons end&gt;
+      &lt;!-- navTooltip tells the tooltip directive that this is a nav button --&gt;
+      &lt;ion-button icon-only tooltip=&quot;Call&quot; navTooltip&gt;
+        &lt;ion-icon name=&quot;call&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-navbar&gt;
+&lt;/ion-header&gt;</code></pre></div><h3 id="installation">Installation</h3>
+<ol>
+<li>Install this module by running the following command:</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-shell">npm install ionic4-tooltips --save</code></pre></div><ul>
+<li>For AngularJS + Ionic 3 (<a href="https://github.com/jrquick17/ionic4-tooltips/releases/tag/v0.0.1">v0.0.1</a>): <code>npm install ionic4-tooltips@0.0.1 --save</code></li>
+<li>For Angular 2-7 + Ionic 3 (<a href="https://github.com/jrquick17/ionic4-tooltips/releases/tag/v1.0.0">v1.0.0</a>): <code>npm install ionic4-tooltips@1.0.0 --save</code></li>
+</ul>
+<ol start="2">
+<li>Import <code>TooltipsModule</code> in your <code>@NgModule</code>. If you are using lazy module loading, then you need to import it in the modules where it&#39;s used.</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-ts">import { TooltipsModule } from &#39;ionic-tooltips&#39;;
+
+&#64;NgModule({
+   ...
+   imports: [
+      ...
+      TooltipsModule.forRoot()
+   ]
+})
+export class MyModule { ... }</code></pre></div><ol start="3">
+<li>Import <code>BrowserAnimationsModule</code> in your app&#39;s main <code>@NgModule</code>.</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-ts">import { BrowserAnimationsModule } from &#39;&#64;angular/platform-browser/animations&#39;;
+
+&#64;NgModule({
+  ...
+  imports: [
+    ...
+    BrowserAnimationsModule
+  ]
+})</code></pre></div><p>Now you&#39;re ready to use this module. See information below for usage.</p>
+<h3 id="usage">Usage</h3>
+<p>The <code>tooltip</code> directive takes a string, which will be used as the tooltip text. To use HTML in your tooltip, you need to pass the content through the <code>[tooltipHtml]</code> directive documented below. When using the <code>tooltip</code> directive, you can also use the following inputs:</p>
+<h4 id="tooltiphtml"><code>tooltipHtml</code></h4>
+<p>(string) specifies HTML to use inside the tooltip. This will override any value you passed with the <code>[tooltip]</code> directive (if any was provided).</p>
+<h4 id="navtooltip"><code>navTooltip</code></h4>
+<p>(boolean) add this attribute or set it&#39;s value to true to specify that the tooltip belongs to a nav button. Defaults to <code>false</code>.</p>
+<h4 id="positionv"><code>positionV</code></h4>
+<p>(string) specifies the vertical position of the tooltip. Can be either <code>&#39;top&#39;</code> or <code>&#39;bottom&#39;</code>.</p>
+<h4 id="positionh"><code>positionH</code></h4>
+<p>(string) specifies the horizontal position of the tooltip. Can be either <code>&#39;right&#39;</code> or <code>&#39;left&#39;</code>.</p>
+<h4 id="event"><code>event</code></h4>
+<p>(string) the event to show the tooltip on. Can be either <code>&#39;hover&#39;</code>, <code>&#39;click&#39;</code> or <code>&#39;press&#39;</code>. Defaults to <code>&#39;hover&#39;</code> on desktop, <code>&#39;press&#39;</code> on mobile.<br>Note: <code>&#39;hover&#39;</code> only works on desktop.</p>
+<h4 id="desktopevent"><code>desktopEvent</code></h4>
+<p>(string) the event to show the tooltip on when displayed on a desktop . Can be either <code>&#39;hover&#39;</code>, <code>&#39;click&#39;</code> or <code>&#39;press&#39;</code>. Defaults to <code>&#39;hover&#39;</code>.  
+Note: This only works when the <code>event</code> attribute is omitted.</p>
+<h4 id="mobileevent"><code>mobileEvent</code></h4>
+<p>(string) the event to show the tooltip on when displayed on a mobile. Can be either <code>&#39;click&#39;</code> or <code>&#39;press&#39;</code>. Defaults to <code>&#39;press&#39;</code>.  
+Note: This only works when the <code>event</code> attribute is omitted.</p>
+<h4 id="arrow"><code>arrow</code></h4>
+<p>(boolean) add this attribute or set it&#39;s value to true to show an arrow attached to the tooltip. Defaults to <code>false</code>.</p>
+<h4 id="duration"><code>duration</code></h4>
+<p>(number) number of milliseconds to show the tooltip for. Defaults to <code>3000</code>.</p>
+<h4 id="active"><code>active</code></h4>
+<p>(boolean) add this attribute or set it&#39;s value to true to display the tooltip. Defaults to <code>false</code>.</p>
+<h4 id="topoffset"><code>topOffset</code></h4>
+<p>(number) add this attribute to offset the vertical position of the tooltip. Defaults to <code>0</code>.</p>
+<h4 id="leftoffset"><code>leftOffset</code></h4>
+<p>(number) add this attribute to offset the horizontal position of the tooltip. Defaults to <code>0</code>.</p>
+<h4 id="hideothers"><code>hideOthers</code></h4>
+<p>(boolean) add this attribute to set weather to hide other visible tooltips. Defaults to <code>false</code>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>To contribute, clone the repo. Then, run <code>npm install</code> to get the packages needed for the library to work. Running <code>npm install start</code> will build and run the demo.</p>
+<h3 id="versioning">Versioning</h3>
+<p>We use <a href="https://semver.org/">SemVer</a> for versioning. For the versions available, see the <a href="https://github.com/jrquick17/ionic4-tooltips">tags on this repository</a>.</p>
+<h2 id="issues">Issues</h2>
+<p>If you find any issues feel free to open a request in <a href="https://github.com/jrquick17/ionic4-auto-complete/issues">the Issues tab</a>. If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.</p>
+<h3 id="demo">Demo</h3>
+<p>Run <code>npm install</code> to get packages required for the demo and then run <code>ionic serve</code> to run locally.</p>
+<h3 id="thanks">Thanks</h3>
+<ul>
+<li><a href="https://github.com/bushybuffalo">bushybuffalo</a></li>
+<li><a href="https://github.com/jrquick17">jrquick17</a></li>
+<li><a href="https://github.com/kadoshms">kadoshms</a></li>
+<li><a href="https://github.com/gnowland">gnowland</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

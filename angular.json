@@ -26,9 +26,6 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/scss/auto-complete.scss"
-            ],
             "scripts": []
           },
           "configurations": {
@@ -90,9 +87,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ],
-            "styles": [
-              "src/scss/auto-complete.scss"
             ],
             "scripts": []
           }

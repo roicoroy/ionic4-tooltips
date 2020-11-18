@@ -1,12 +1,43 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {CommonModule} from '@angular/common';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 
-import { AppModule } from './app.module';
-import { environment } from './environments/environment';
+/** Components **/
+export * from './components/tooltip-box/tooltip-box.component';
 
-if (environment.production) {
-  enableProdMode();
+import {TooltipBoxComponent} from './components/tooltip-box/tooltip-box.component';
+
+/** Controllers **/
+export * from './controllers/tooltip.cotroller';
+
+import {TooltipController} from './controllers/tooltip.cotroller';
+
+/** Directives **/
+export * from './directives/tooltip.directive';
+
+import {TooltipDirective} from './directives/tooltip.directive';
+
+@NgModule({
+  declarations: [
+    TooltipDirective,
+    TooltipBoxComponent
+  ],
+  entryComponents: [
+    TooltipBoxComponent
+  ],
+  exports: [
+    TooltipDirective
+  ],
+  imports: [
+    CommonModule
+  ]
+})
+export class TooltipsModule {
+  static forRoot():ModuleWithProviders<TooltipsModule> {
+    return {
+      ngModule: TooltipsModule,
+      providers: [
+        TooltipController
+      ],
+    };
+  }
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
