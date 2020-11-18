@@ -21,7 +21,7 @@ import {TooltipDirective} from './directives/tooltip.directive';
   ]
 })
 export class TooltipsModule {
-  static forRoot():ModuleWithProviders {
+  static forRoot():ModuleWithProviders<TooltipsModule> {
     return {
       ngModule: TooltipsModule,
       providers: [
