@@ -14,7 +14,7 @@ import {
 
 import {Platform} from '@ionic/angular';
 
-import {TooltipBox} from '../components/tooltip-box/tooltip-box.component';
+import {TooltipBoxComponent} from '../components/tooltip-box/tooltip-box.component';
 import {TooltipController} from '../controllers/tooltip.cotroller';
 import {TooltipEvent} from '../models/tooltip-event.model';
 
@@ -73,7 +73,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   private _canShow:boolean = true;
   private _debouncedPromise = null;
   private _navTooltip:boolean = false;
-  private _tooltipElement:ComponentRef<TooltipBox>;
+  private _tooltipElement:ComponentRef<TooltipBoxComponent>;
   private _tooltipTimeout:any;
 
   constructor(
@@ -154,7 +154,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
 
         this._createTooltipComponent();
 
-        const tooltipComponent: TooltipBox = this._tooltipElement.instance;
+        const tooltipComponent: TooltipBoxComponent = this._tooltipElement.instance;
 
         tooltipComponent.role = this.role;
         tooltipComponent.text = this.tooltip;
@@ -223,7 +223,7 @@ export class TooltipDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private _createTooltipComponent() {
-    const componentFactory = this.cfr.resolveComponentFactory(TooltipBox);
+    const componentFactory = this.cfr.resolveComponentFactory(TooltipBoxComponent);
     this._tooltipElement = this.vcr.createComponent(componentFactory);
     this.tooltipCtrl.addTooltip(this);
   }

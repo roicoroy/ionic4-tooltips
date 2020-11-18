@@ -10,7 +10,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 
-import { TooltipBox } from '../components/tooltip-box/tooltip-box.component';
+import { TooltipBoxComponent } from '../components/tooltip-box/tooltip-box.component';
 import { TooltipDirective } from './tooltip.directive';
 import { TooltipsModule } from '../tooltips.module';
 
@@ -48,7 +48,7 @@ describe('Tooltip', () => {
     comp: TestPage,
     fixture: ComponentFixture<TestPage>,
     tooltip: any,
-    getTooltipBox: () => TooltipBox;
+    getTooltipBox: () => TooltipBoxComponent;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -77,7 +77,7 @@ describe('Tooltip', () => {
     expect(comp instanceof TestPage).toBeTruthy();
   });
 
-  it('should display TooltipBox on click for 1s', () => {
+  it('should display TooltipBoxComponent on click for 1s', () => {
     tooltip.onClick();
     fixture.detectChanges();
     expect(tooltip.tooltipElement).toBeDefined();
@@ -87,7 +87,7 @@ describe('Tooltip', () => {
     }, 1000);
   });
 
-  it('should display TooltipBox on press for 1s', () => {
+  it('should display TooltipBoxComponent on press for 1s', () => {
     tooltip.event = 'press';
     tooltip.onPress();
     fixture.detectChanges();
@@ -98,7 +98,7 @@ describe('Tooltip', () => {
     }, 1000);
   });
 
-  it('should display TooltipBox when active', () => {
+  it('should display TooltipBoxComponent when active', () => {
     tooltip.active = true;
     expect(tooltip.tooltipElement).toBeDefined();
     expect(tooltip.active).toBeTruthy();

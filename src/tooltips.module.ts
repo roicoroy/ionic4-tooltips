@@ -7,7 +7,7 @@ export * from './tooltips.module';
 /** Components **/
 export * from './components/tooltip-box/tooltip-box.component';
 
-import {TooltipBox} from './components/tooltip-box/tooltip-box.component';
+import {TooltipBoxComponent} from './components/tooltip-box/tooltip-box.component';
 
 /** Controllers **/
 export * from './controllers/tooltip.cotroller';
@@ -22,10 +22,10 @@ import {TooltipDirective} from './directives/tooltip.directive';
 @NgModule({
   declarations: [
     TooltipDirective,
-    TooltipBox
+    TooltipBoxComponent
   ],
   entryComponents: [
-    TooltipBox
+    TooltipBoxComponent
   ],
   exports: [
     TooltipDirective
