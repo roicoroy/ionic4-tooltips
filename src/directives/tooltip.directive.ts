@@ -15,7 +15,7 @@ import {
 import {Platform} from '@ionic/angular';
 
 import {TooltipBoxComponent} from '../components/tooltip-box/tooltip-box.component';
-import {TooltipController} from '../controllers/tooltip.cotroller';
+import {TooltipController} from '../controllers/tooltip.controller';
 import {TooltipEvent} from '../models/tooltip-event.model';
 
 @Directive({

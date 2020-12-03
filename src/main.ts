@@ -7,9 +7,9 @@ export * from './components/tooltip-box/tooltip-box.component';
 import {TooltipBoxComponent} from './components/tooltip-box/tooltip-box.component';
 
 /** Controllers **/
-export * from './controllers/tooltip.cotroller';
+export * from './controllers/tooltip.controller';
 
-import {TooltipController} from './controllers/tooltip.cotroller';
+import {TooltipController} from './controllers/tooltip.controller';
 
 /** Directives **/
 export * from './directives/tooltip.directive';
