@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.0.3]
+### Added
+* Add @angular/animation to peer dependencies by [jrquick17](https://github.com/jrquick17)
+
+
+## [2.0.2]
+### Added
+* Angular 11 support by [jrquick17](https://github.com/jrquick17)
+
 ## [2.0.0]
 ### Added
 * Angular 8 support by [jrquick17](https://github.com/jrquick17)

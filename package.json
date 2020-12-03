@@ -95,6 +95,7 @@
     "node": ">=6.0.0"
   },
   "peerDependencies": {
-    "@angular/core": "^11.0.3"
+    "@angular/core": "^8.0.0 || 9.0.0 || ^10.0.0 || ^11.0.0",
+    "@angular/animation": "^8.0.0 || 9.0.0 || ^10.0.0 || ^11.0.0"
   }
 }
