@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/ionic4-tooltips.svg)](https://www.npmjs.com/package/ionic4-tooltips)
 [![npm](https://img.shields.io/npm/dm/ionic4-tooltips.svg)](https://www.npmjs.com/package/ionic4-tooltips)
 
-![Ionic Tooltips Demo](https://github.com/zyra/ionic-tooltips-example/blob/master/ionic-tooltips.gif?raw=true)
+![Ionic Tooltips Demo](https://github.com/zyra/ionic4-tooltips-example/blob/master/ionic4-tooltips.gif?raw=true)
 
 ## Index ##
 
@@ -23,7 +23,7 @@
 Tooltips module for AngularJS/Angular2+ and Ionic 2+. 
                                         
 * Try out the [demo](https://ionic4-tooltips.jrquick.com) to see it in action!
-* Checkout [my other Ionic/Angular project](https://github.com/jrquick17/ionic4-auto-complete) for autocomplete!
+* Checkout [my other Ionic/Angular project](https://github.com/jrquick17/ionic4-tooltips) for autocomplete!
 * Visit [my website](https://jrquick.com) for other cool projects!
 
 ## Documentation
@@ -70,7 +70,7 @@ npm install ionic4-tooltips --save
 2.  Import `TooltipsModule` in your `@NgModule`. If you are using lazy module loading, then you need to import it in the modules where it's used.
 
 ```ts
-import { TooltipsModule } from 'ionic-tooltips';
+import { TooltipsModule } from 'ionic4-tooltips';
 
 @NgModule({
    ...
@@ -166,7 +166,7 @@ We use [SemVer](https://semver.org/) for versioning. For the versions available,
 
 ## Issues ##
 
-If you find any issues feel free to open a request in [the Issues tab](https://github.com/jrquick17/ionic4-auto-complete/issues). If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.
+If you find any issues feel free to open a request in [the Issues tab](https://github.com/jrquick17/ionic4-tooltips/issues). If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.
 
 ### Demo ###
 
