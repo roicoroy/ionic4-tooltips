@@ -70,7 +70,7 @@ npm install ionic4-tooltips --save
 2.  Import `TooltipsModule` in your `@NgModule`. If you are using lazy module loading, then you need to import it in the modules where it's used.
 
 ```ts
-import { TooltipsModule } from 'ionic-tooltips';
+import { TooltipsModule } from 'ionic4-tooltips';
 
 @NgModule({
    ...
@@ -166,7 +166,7 @@ We use [SemVer](https://semver.org/) for versioning. For the versions available,
 
 ## Issues ##
 
-If you find any issues feel free to open a request in [the Issues tab](https://github.com/jrquick17/ionic4-auto-complete/issues). If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.
+If you find any issues feel free to open a request in [the Issues tab](https://github.com/jrquick17/ionic4-tooltips/issues). If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.
 
 ### Demo ###
 
